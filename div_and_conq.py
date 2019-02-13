@@ -32,7 +32,7 @@ def majority(a): #take subarray
 #%%
 def divide_conquer(a): #take subarray 
    
-    n = len(a); #find the length of the array
+    n = len(a); #find the length of the subarray
 
     m = int(np.floor(n/2)); #find the first part, it could be an odd number
     
@@ -40,7 +40,7 @@ def divide_conquer(a): #take subarray
     right = a.tail(n-m); #take the right side
     
     if len(left) == 1: 
-        left_m = majority(left); #if it is in the last level, assign the majority (cell value in most cases)
+        left_m = majority(left); #if it is in the last level, assign the majority
         print('left length is:', len(left), 'majority is:', left_m); 
     else:
         left_m = divide_conquer(left); #recursive
@@ -52,10 +52,7 @@ def divide_conquer(a): #take subarray
     else:
         right_m = divide_conquer(right); #recursive
         print('right length is:', len(right), 'majority is:', right_m);
-    
-   # left_m = majority(left); #find the left majority
-    # right_m = majority(right); #find the right majority
-    
+        
     if left_m == right_m and left_m != 'n/a':  #Case 1 
         major = left_m; 
     elif left_m != 'n/a' and right_m == 'n/a': #Case 3
